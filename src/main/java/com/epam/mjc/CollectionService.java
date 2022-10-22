@@ -13,7 +13,7 @@ public class CollectionService {
     }
 
     public List<String> toUpperCaseCollection(List<String> list) {
-        return list.stream().map(x -> x.toUpperCase()).collect(Collectors.toList());
+        return list.stream().map(String::toUpperCase).collect(Collectors.toList());
     }
 
     public Optional<Integer> findMax(List<Integer> list) {
@@ -25,6 +25,6 @@ public class CollectionService {
     }
 
     public Integer sum(List<Integer> list) {
-        return list.stream().reduce((x1, x2) -> x1 + x2).get();
+        return list.stream().reduce(0, Integer::sum);
     }
 }
